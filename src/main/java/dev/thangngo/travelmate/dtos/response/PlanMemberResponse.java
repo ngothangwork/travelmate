@@ -1,0 +1,18 @@
+package dev.thangngo.travelmate.dtos.response;
+
+import dev.thangngo.travelmate.enums.MemberRole;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Getter
+@Setter
+public class PlanMemberResponse {
+    private Long id;
+    private UUID userId;
+    private String email;
+    private String name;
+    private String avatar;
+    private MemberRole role;
+}
