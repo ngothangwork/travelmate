@@ -29,6 +29,11 @@ public class ItineraryItem {
     private Plan plan;
 
     @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_by", nullable = false)
+    private User createdBy;
+
+    @NotNull
     @Column(name = "\"date\"", nullable = false)
     private LocalDate date;
 
@@ -52,5 +57,9 @@ public class ItineraryItem {
 
     @Column(name = "end_time")
     private LocalTime endTime;
+
+    @Column(name = "is_done")
+    private Boolean isDone;
+
 
 }

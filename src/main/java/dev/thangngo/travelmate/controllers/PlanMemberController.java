@@ -1,8 +1,8 @@
 package dev.thangngo.travelmate.controllers;
 
-import dev.thangngo.travelmate.dtos.request.PlanMemberRequest;
+import dev.thangngo.travelmate.dtos.request.planmember.PlanMemberRequest;
 import dev.thangngo.travelmate.dtos.response.ApiResponse;
-import dev.thangngo.travelmate.dtos.response.PlanMemberResponse;
+import dev.thangngo.travelmate.dtos.response.planmember.PlanMemberResponse;
 import dev.thangngo.travelmate.services.PlanMemberService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +24,7 @@ public class PlanMemberController {
     public ResponseEntity<ApiResponse<List<PlanMemberResponse>>> getAllPlanMembers(@PathVariable Long id) {
         List<PlanMemberResponse> list = planMemberService.getMembersByPlanId(id);
         return ResponseEntity.ok(ApiResponse.<List<PlanMemberResponse>>builder()
+                .success(true)
                 .message("Success")
                 .result(list)
                 .build());
@@ -36,6 +37,7 @@ public class PlanMemberController {
     ) {
         planMemberService.removeMemberFromPlan(planId, memberId);
         return ResponseEntity.ok(ApiResponse.<Void>builder()
+                .success(true)
                 .message("Member removed successfully")
                 .build());
     }
@@ -46,6 +48,7 @@ public class PlanMemberController {
     ){
         PlanMemberResponse planMember = planMemberService.addMemberToPlan(planMemberRequest);
         return ResponseEntity.ok(ApiResponse.<PlanMemberResponse>builder()
+                .success(true)
                 .message("Member added successfully")
                 .result(planMember)
                 .build());

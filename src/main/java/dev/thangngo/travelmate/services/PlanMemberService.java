@@ -1,10 +1,9 @@
 package dev.thangngo.travelmate.services;
 
-import dev.thangngo.travelmate.dtos.request.PlanMemberRequest;
-import dev.thangngo.travelmate.dtos.response.PlanMemberResponse;
+import dev.thangngo.travelmate.dtos.request.planmember.PlanMemberRequest;
+import dev.thangngo.travelmate.dtos.response.planmember.PlanMemberResponse;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 public interface PlanMemberService {

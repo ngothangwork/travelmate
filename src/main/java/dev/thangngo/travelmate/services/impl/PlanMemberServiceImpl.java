@@ -1,7 +1,7 @@
 package dev.thangngo.travelmate.services.impl;
 
-import dev.thangngo.travelmate.dtos.request.PlanMemberRequest;
-import dev.thangngo.travelmate.dtos.response.PlanMemberResponse;
+import dev.thangngo.travelmate.dtos.request.planmember.PlanMemberRequest;
+import dev.thangngo.travelmate.dtos.response.planmember.PlanMemberResponse;
 import dev.thangngo.travelmate.entities.Plan;
 import dev.thangngo.travelmate.entities.PlanMember;
 import dev.thangngo.travelmate.entities.User;

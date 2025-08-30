@@ -1,6 +1,7 @@
-package dev.thangngo.travelmate.dtos.response;
+package dev.thangngo.travelmate.dtos.response.plan;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import dev.thangngo.travelmate.dtos.response.user.UserResponse;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,7 +27,7 @@ public class PlanResponse {
 
     private String description;
 
-    private boolean isPublic;
+    private Boolean isPublic;
 
     private String slug;
 

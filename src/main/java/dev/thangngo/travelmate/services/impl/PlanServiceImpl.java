@@ -1,8 +1,9 @@
 package dev.thangngo.travelmate.services.impl;
 
 import dev.thangngo.travelmate.common.SlugUtil;
-import dev.thangngo.travelmate.dtos.request.PlanRequest;
-import dev.thangngo.travelmate.dtos.response.PlanResponse;
+import dev.thangngo.travelmate.dtos.request.plan.PlanRequest;
+import dev.thangngo.travelmate.dtos.response.plan.ListPlanResponse;
+import dev.thangngo.travelmate.dtos.response.plan.PlanResponse;
 import dev.thangngo.travelmate.entities.Plan;
 import dev.thangngo.travelmate.entities.PlanMember;
 import dev.thangngo.travelmate.entities.User;
@@ -47,9 +48,14 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
-    public List<PlanResponse> getAllPlans() {
-        List<Plan> plan = planRepository.findAll();
-        return plan.stream().map(planMapper::toPlanResponse).toList();
+    public List<ListPlanResponse> getAllPlans() {
+        List<Plan> plans = planRepository.findAll();
+        return plans.stream().map(plan -> {
+            ListPlanResponse response = planMapper.toListPlanResponse(plan);
+            int memberCount = planMemberRepository.countByPlanId(plan.getId());
+            response.setNumberOfMembers(memberCount);
+            return response;
+        }).toList();
     }
 
     @Override

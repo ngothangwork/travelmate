@@ -1,4 +1,4 @@
-package dev.thangngo.travelmate.dtos.response;
+package dev.thangngo.travelmate.dtos.response.planmember;
 
 import dev.thangngo.travelmate.enums.MemberRole;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package dev.thangngo.travelmate.dtos.request;
+package dev.thangngo.travelmate.dtos.request.planmember;
 
 import jakarta.validation.constraints.Email;
 import lombok.Getter;

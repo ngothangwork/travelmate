@@ -1,7 +1,7 @@
 package dev.thangngo.travelmate.controllers;
 
 import dev.thangngo.travelmate.dtos.response.ApiResponse;
-import dev.thangngo.travelmate.dtos.response.UserResponse;
+import dev.thangngo.travelmate.dtos.response.user.UserResponse;
 import dev.thangngo.travelmate.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +30,7 @@ public class UserController {
                             .build());
         }
         return ResponseEntity.ok(ApiResponse.<UserResponse>builder()
+                .success(true)
                 .message("Success")
                 .result(user)
                 .build());
@@ -39,6 +40,7 @@ public class UserController {
     public ResponseEntity<ApiResponse<List<UserResponse>>> getAllUsers() {
         List<UserResponse> users = userService.getAllUsers();
         return ResponseEntity.ok(ApiResponse.<List<UserResponse>>builder()
+                .success(true)
                 .message("Success")
                 .result(users)
                 .build());

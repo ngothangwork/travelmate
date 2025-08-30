@@ -1,21 +1,22 @@
-package dev.thangngo.travelmate.dtos.request;
+package dev.thangngo.travelmate.dtos.response.plan;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import dev.thangngo.travelmate.dtos.response.user.UserResponse;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class PlanRequest {
+public class ListPlanResponse {
+    private Long id;
 
     private String name;
 
-    private UUID userId;
+    private UserResponse owner;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate startDate;
@@ -27,5 +28,10 @@ public class PlanRequest {
 
     private String description;
 
-    private boolean isPublic;
+    private Boolean isPublic;
+
+    private String slug;
+
+    private int numberOfMembers;
+
 }

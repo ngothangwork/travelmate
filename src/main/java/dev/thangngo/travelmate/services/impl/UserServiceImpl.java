@@ -1,6 +1,6 @@
 package dev.thangngo.travelmate.services.impl;
 
-import dev.thangngo.travelmate.dtos.response.UserResponse;
+import dev.thangngo.travelmate.dtos.response.user.UserResponse;
 import dev.thangngo.travelmate.entities.User;
 import dev.thangngo.travelmate.mappers.UserMapper;
 import dev.thangngo.travelmate.repositories.UserRepository;

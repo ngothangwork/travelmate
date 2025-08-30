@@ -1,6 +1,6 @@
 package dev.thangngo.travelmate.mappers;
 
-import dev.thangngo.travelmate.dtos.response.PlanMemberResponse;
+import dev.thangngo.travelmate.dtos.response.planmember.PlanMemberResponse;
 import dev.thangngo.travelmate.entities.PlanMember;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

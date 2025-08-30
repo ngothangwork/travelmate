@@ -1,12 +1,13 @@
 package dev.thangngo.travelmate.controllers;
 
 import dev.thangngo.travelmate.common.email.EmailHelper;
-import dev.thangngo.travelmate.dtos.response.UserResponse;
+import dev.thangngo.travelmate.dtos.response.user.UserResponse;
 import dev.thangngo.travelmate.enums.UserRole;
 import dev.thangngo.travelmate.sercurities.JwtUtil;
 import dev.thangngo.travelmate.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.NonFinal;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,8 @@ public class AuthController {
     private final EmailHelper emailHelper;
 
     @NonFinal
-    static final String PASSWORD = "password";
+    @Value("${admin.password}")
+    private String password;
 
     @PostMapping("/google")
     public ResponseEntity<?> loginWithGoogle(@RequestBody Map<String, String> payload) {
@@ -52,7 +54,7 @@ public class AuthController {
             newUser.setEmail(email);
             newUser.setName(name);
             newUser.setAvatar(avatar);
-            newUser.setPasswordHash(passwordEncoder.encode(PASSWORD));
+            newUser.setPasswordHash(passwordEncoder.encode(password));
             newUser.setRole(UserRole.USER.toString());
             newUser.setPoints(0L);
             existingUser = userService.createUser(newUser);

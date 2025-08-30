@@ -1,9 +1,10 @@
 package dev.thangngo.travelmate.controllers;
 
 
-import dev.thangngo.travelmate.dtos.request.PlanRequest;
+import dev.thangngo.travelmate.dtos.request.plan.PlanRequest;
 import dev.thangngo.travelmate.dtos.response.ApiResponse;
-import dev.thangngo.travelmate.dtos.response.PlanResponse;
+import dev.thangngo.travelmate.dtos.response.plan.ListPlanResponse;
+import dev.thangngo.travelmate.dtos.response.plan.PlanResponse;
 import dev.thangngo.travelmate.services.PlanService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,9 @@ public class PlanController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<PlanResponse>>> getAllPlans() {
-        List<PlanResponse> plans = planService.getAllPlans();
-        return ResponseEntity.ok(ApiResponse.<List<PlanResponse>>builder()
+    public ResponseEntity<ApiResponse<List<ListPlanResponse>>> getAllPlans() {
+        List<ListPlanResponse> plans = planService.getAllPlans();
+        return ResponseEntity.ok(ApiResponse.<List<ListPlanResponse>>builder()
                 .success(true)
                 .message("Get all plans successfully")
                 .result(plans)

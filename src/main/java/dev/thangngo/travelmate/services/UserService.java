@@ -1,6 +1,6 @@
 package dev.thangngo.travelmate.services;
 
-import dev.thangngo.travelmate.dtos.response.UserResponse;
+import dev.thangngo.travelmate.dtos.response.user.UserResponse;
 
 import java.util.List;
 
