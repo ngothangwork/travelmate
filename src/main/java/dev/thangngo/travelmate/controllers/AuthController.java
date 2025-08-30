@@ -62,7 +62,7 @@ public class AuthController {
 
         String jwtToken = jwtUtil.generateToken(email);
 
-        emailHelper.sendSimpleEmail(email, "TRAVEL-MATE: ĐĂNG NHẬP THÀNH CÔNG", "Cảm ơn bạn đã sử dụng hệ thống của chúng tôi, hiện nay hệ thống đang trong quá trình phát triển, mọi thắc mắc hoặc vấn đề hãy liên hệ hotline: 0398347747");
+ //       emailHelper.sendSimpleEmail(email, "TRAVEL-MATE: ĐĂNG NHẬP THÀNH CÔNG", "Cảm ơn bạn đã sử dụng hệ thống của chúng tôi, hiện nay hệ thống đang trong quá trình phát triển, mọi thắc mắc hoặc vấn đề hãy liên hệ hotline: 0398347747");
 
         return ResponseEntity.ok(Map.of(
                 "token", jwtToken,

@@ -18,7 +18,9 @@ public enum ErrorCode {
     USER_NOT_FOUND(1008, "User not found"),
     PLAN_NOT_FOUND(1009, "Plan not found"),
     PLAN_MEMBER_NOT_FOUND(1010, "Plan member not found"),
-    ITINERARY_ITEM_NOT_FOUND(1011, "Itinerary item not found");
+    ITINERARY_ITEM_NOT_FOUND(1011, "Itinerary item not found"),
+    START_DATE_AFTER_END_DATE(1012, "Start date must be before end date"),
+    BUSY_IN_THIS_TIME(1013, "You are busy in this time");
 
     private final int code;
     private final String message;

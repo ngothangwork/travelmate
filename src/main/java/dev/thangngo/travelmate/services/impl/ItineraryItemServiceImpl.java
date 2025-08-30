@@ -45,6 +45,19 @@ public class ItineraryItemServiceImpl implements ItineraryItemService {
     @Override
     public ItineraryItemResponse createItineraryItem(CreateItineraryItemRequest request) {
         ItineraryItem itineraryItem = itineraryItemMapper.toItineraryItem(request);
+        if(itineraryItem.getStartTime().isAfter(itineraryItem.getEndTime())){
+            throw new AppException(ErrorCode.START_DATE_AFTER_END_DATE);
+        }
+
+        List<ItineraryItem> listItineraryItem = itineraryItemRepository.findByPlanIdAndDate(itineraryItem.getPlan().getId(), itineraryItem.getDate());
+        for(ItineraryItem item : listItineraryItem){
+            if(item.getEndTime().isBefore(itineraryItem.getStartTime()) || item.getStartTime().isAfter(itineraryItem.getEndTime())){
+
+            }else {
+                throw new AppException(ErrorCode.BUSY_IN_THIS_TIME);
+            }
+        }
+
         itineraryItem = itineraryItemRepository.save(itineraryItem);
         return itineraryItemMapper.toItineraryItemResponse(itineraryItem);
     }
