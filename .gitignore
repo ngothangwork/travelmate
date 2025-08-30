@@ -35,4 +35,4 @@ build/
 # Environment & secrets
 .env
 *.env
-.application.properties
+application.properties
