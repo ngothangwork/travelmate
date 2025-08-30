@@ -27,6 +27,3 @@ It provides features like collaborative trip planning, itinerary management, use
 
 
 
-
-## 📂 Project Structure
-
